@@ -3,17 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bma.Core", "..\Libraries\Bma.Core\Bma.Core.csproj", "{A1E4C4EB-5C04-4EA1-8F06-A1F7A0B1533A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bma.Core", "..\Libraries\Bma.Core\Bma.Core.csproj", "{A1E4C4EB-5C04-4EA1-8F06-A1F7A0B1533A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bma.Services", "..\Libraries\Bma.Services\Bma.Services.csproj", "{7035D97E-F003-4C0C-A8A5-590DFE4EE1B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bma.Services", "..\Libraries\Bma.Services\Bma.Services.csproj", "{7035D97E-F003-4C0C-A8A5-590DFE4EE1B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bma.Application", "..\Libraries\Bma.Application\Bma.Application.csproj", "{94B62095-5B9A-411D-B62B-0EA3BE5FB1D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bma.Application", "..\Libraries\Bma.Application\Bma.Application.csproj", "{94B62095-5B9A-411D-B62B-0EA3BE5FB1D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bma.Data", "..\Libraries\Bma.Data\Bma.Data.csproj", "{BEC3821A-50BF-4D76-AD0A-D25C03BD2322}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bma.Data", "..\Libraries\Bma.Data\Bma.Data.csproj", "{BEC3821A-50BF-4D76-AD0A-D25C03BD2322}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bma.Presentation.Framework", "..\Presentation\Bma.Presentation.Framework\Bma.Presentation.Framework.csproj", "{D7D32036-52D0-4CC1-9279-3435B86246A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bma.Presentation.Framework", "..\Presentation\Bma.Presentation.Framework\Bma.Presentation.Framework.csproj", "{D7D32036-52D0-4CC1-9279-3435B86246A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bma.Presentation.Api", "..\Presentation\Bma.Presentation.Api\Bma.Presentation.Api.csproj", "{1C5643F9-17A7-4AEA-9AB4-123E03A8CC80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bma.Presentation.Api", "..\Presentation\Bma.Presentation.Api\Bma.Presentation.Api.csproj", "{1C5643F9-17A7-4AEA-9AB4-123E03A8CC80}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{A02D0BEC-5BE5-4297-A240-62B5AC3C863B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{4EFAC3EF-5E0D-4226-A77B-D35C1C3868DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7105F4D7-4D9D-4B19-AD25-92DF73656CAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,9 +29,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A1E4C4EB-5C04-4EA1-8F06-A1F7A0B1533A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -100,5 +103,19 @@ Global
 		{1C5643F9-17A7-4AEA-9AB4-123E03A8CC80}.Release|x64.Build.0 = Release|Any CPU
 		{1C5643F9-17A7-4AEA-9AB4-123E03A8CC80}.Release|x86.ActiveCfg = Release|Any CPU
 		{1C5643F9-17A7-4AEA-9AB4-123E03A8CC80}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A1E4C4EB-5C04-4EA1-8F06-A1F7A0B1533A} = {A02D0BEC-5BE5-4297-A240-62B5AC3C863B}
+		{7035D97E-F003-4C0C-A8A5-590DFE4EE1B6} = {A02D0BEC-5BE5-4297-A240-62B5AC3C863B}
+		{94B62095-5B9A-411D-B62B-0EA3BE5FB1D7} = {A02D0BEC-5BE5-4297-A240-62B5AC3C863B}
+		{BEC3821A-50BF-4D76-AD0A-D25C03BD2322} = {A02D0BEC-5BE5-4297-A240-62B5AC3C863B}
+		{D7D32036-52D0-4CC1-9279-3435B86246A8} = {4EFAC3EF-5E0D-4226-A77B-D35C1C3868DC}
+		{1C5643F9-17A7-4AEA-9AB4-123E03A8CC80} = {4EFAC3EF-5E0D-4226-A77B-D35C1C3868DC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {18CD8347-2CB8-4F05-9940-47890A7985C5}
 	EndGlobalSection
 EndGlobal
