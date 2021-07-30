@@ -1,1 +1,1 @@
-# bma-exam
+This project is an exam for developer at BMA Advogados
