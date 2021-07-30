@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mba.Services
+namespace Bma.Application
 {
     public class Class1
     {

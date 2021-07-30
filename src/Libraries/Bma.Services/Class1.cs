@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mba.Core
+namespace Bma.Services
 {
     public class Class1
     {

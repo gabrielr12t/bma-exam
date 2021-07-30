@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mba.Data
+namespace Bma.Data
 {
     public class Class1
     {
