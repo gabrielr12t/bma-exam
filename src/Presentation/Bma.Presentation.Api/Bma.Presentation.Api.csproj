@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bma.Presentation.Framework\Bma.Presentation.Framework.csproj" />
+    <ProjectReference Include="..\..\Libraries\Bma.Core\Bma.Core.csproj" />
   </ItemGroup>
 
 </Project>
