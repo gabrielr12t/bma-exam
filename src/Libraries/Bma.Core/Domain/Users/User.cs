@@ -1,6 +1,6 @@
 namespace Bma.Core.Domain.Users
 {
-    public partial class User : BaseEntity
+    public class User : BaseEntity
     {
         public string Name { get; set; }
 
@@ -12,11 +12,6 @@ namespace Bma.Core.Domain.Users
 
         public double Height { get; set; }
 
-        private bool _isOldMan;
-        public bool IsOldMan
-        {
-            get { return this.Age >= 60; }
-            private set { _isOldMan = value; }
-        }
+        public bool IsOldMan { get; set; }
     }
 }
