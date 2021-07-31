@@ -2,6 +2,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bma.Core\Bma.Core.csproj" />
+    <ProjectReference Include="..\Bma.Data\Bma.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="33.0.2" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -12,6 +12,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\Bma.Core\Bma.Core.csproj" />
     <ProjectReference Include="..\..\Libraries\Bma.Application\Bma.Application.csproj" />
+    <ProjectReference Include="..\..\Libraries\Bma.Data\Bma.Data.csproj" />
+    <ProjectReference Include="..\..\Libraries\Bma.Services\Bma.Services.csproj" />
   </ItemGroup>
 
 </Project>

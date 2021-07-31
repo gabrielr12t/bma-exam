@@ -1,6 +1,7 @@
 using System;
-using Bma.Core.Infrastructure;
+using Bma.Data;
 using MediatR;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,19 +9,19 @@ namespace Bma.Presentation.Framework.Infrastructure.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IEngine ConfigureApplicationServices(this IServiceCollection services, IConfiguration configuration)
+        public static void ConfigureApplicationServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddHttpContextAccessor();
             services.AddBmaMediatR();
             services.AddControllers();
+            services.AddResponseCompression();
+            services.AddOptions();
 
-            var engine = EngineContext.Create();
-            engine.ConfigureServices(services, configuration);
-
-            return engine;
+            services.RegisterDI();
+            services.RegisterSqlServer(configuration);
         }
 
-        public static void AddBmaMediatR(this IServiceCollection services)
+        private static void AddBmaMediatR(this IServiceCollection services)
         {
             var assembly = AppDomain.CurrentDomain.Load("Bma.Application");
             services.AddMediatR(assembly);
