@@ -1,6 +1,6 @@
-namespace Bma.Core.Domain.Users
+namespace Bma.Core.Domain.Persons
 {
-    public class User : BaseEntity
+    public class Person : BaseEntity
     {
         public string Name { get; set; }
 
@@ -11,7 +11,5 @@ namespace Bma.Core.Domain.Users
         public double Weight { get; set; }
 
         public double Height { get; set; }
-
-        public bool IsOldMan { get; set; }
     }
 }

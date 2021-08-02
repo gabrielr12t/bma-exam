@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Bma.Core.Domain.Users;
+using System.Threading.Tasks; 
 using Bma.Data;
 using Bma.Data.Repositories;
 using Bogus;
@@ -14,7 +13,7 @@ namespace Bma.Services.Installation
     {
         #region Fields
 
-        private readonly IRepositoryAsync<User> _userRepository;
+        private readonly IRepositoryAsync<Bma.Core.Domain.Persons.Person> _personRepository;
         private readonly IServiceScopeFactory _scopeFactory;
         private bool _existsDatabase = false;
 
@@ -23,10 +22,10 @@ namespace Bma.Services.Installation
         #region Ctor
 
         public InstallFakeDataService(
-            IRepositoryAsync<User> userRepository,
+            IRepositoryAsync<Bma.Core.Domain.Persons.Person> personRepository,
             IServiceScopeFactory scopeFactory)
         {
-            _userRepository = userRepository;
+            _personRepository = personRepository;
             _scopeFactory = scopeFactory;
         }
 
@@ -34,21 +33,20 @@ namespace Bma.Services.Installation
 
         #region Utilities
 
-        protected async Task InsertUserDataAsync()
+        protected async Task InsertPersonDataAsync()
         {
-            var fakeUsers = await GenerateUsers();
-            await _userRepository.InsertAsync(fakeUsers);
+            var fakePersons = await GeneratePersons();
+            await _personRepository.InsertAsync(fakePersons);
         }
 
-        protected Task<List<User>> GenerateUsers()
+        protected Task<List<Bma.Core.Domain.Persons.Person>> GeneratePersons()
         {
-            var fakeData = new Faker<User>()
+            var fakeData = new Faker<Bma.Core.Domain.Persons.Person>()
                 .RuleFor(p => p.Name, p => p.Person.FirstName)
                 .RuleFor(p => p.Age, p => p.Random.Int(1, 100))
                 .RuleFor(p => p.Gender, p => p.Random.ArrayElement(new char[] { 'M', 'F' }))
                 .RuleFor(p => p.Weight, p => Math.Round(p.Random.Double(50, 120), 2))
-                .RuleFor(p => p.Height, p => Math.Round(p.Random.Double(1.5, 2.1), 2))
-                .RuleFor(p => p.IsOldMan, (f, u) => u.Age >= 60);
+                .RuleFor(p => p.Height, p => Math.Round(p.Random.Double(1.5, 2.1), 2));
 
             return Task.FromResult(fakeData.Generate(15));
         }
@@ -69,7 +67,7 @@ namespace Bma.Services.Installation
 
                     if (!_existsDatabase)
                     {
-                        await InsertUserDataAsync();
+                        await InsertPersonDataAsync();
                     }
                 }
             }

@@ -18,7 +18,7 @@ namespace Bma.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Bma.Core.Domain.Users.User", b =>
+            modelBuilder.Entity("Bma.Core.Domain.Persons.Person", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -35,9 +35,6 @@ namespace Bma.Data.Migrations
                     b.Property<double>("Height")
                         .HasColumnType("float");
 
-                    b.Property<bool>("IsOldMan")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(60)
@@ -48,7 +45,7 @@ namespace Bma.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("Person");
                 });
 #pragma warning restore 612, 618
         }

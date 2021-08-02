@@ -9,7 +9,15 @@ namespace Bma.Presentation.Framework.Infrastructure.Extensions
         public static void ConfigureApplication(this IApplicationBuilder application)
         {
             application.UseResponseCompression();
+            //application.UseCors(options => options.WithOrigins("http://localhost:4200"));
+
+            application.UseCors(x => x
+               .AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
+
             application.UseHttpsRedirection();
+
             application.UseRouting();
             application.UseEndpoints(endpoints => endpoints.MapControllers());
             application.InitializeDatabase();

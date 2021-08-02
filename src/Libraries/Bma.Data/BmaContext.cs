@@ -1,5 +1,5 @@
 using System.Reflection;
-using Bma.Core.Domain.Users;
+using Bma.Core.Domain.Persons;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -25,9 +25,9 @@ namespace Bma.Data
 
         #endregion
 
-        #region Users
+        #region Persons
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Person> Persons { get; set; }
 
         #endregion
 
@@ -46,7 +46,7 @@ namespace Bma.Data
             if (!optionsBuilder.IsConfigured)
                 optionsBuilder
                     .EnableSensitiveDataLogging(true)
-                    .UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
+                    .UseSqlServer(_configuration.GetConnectionString("DevelopmentConnection"));
         }
 
         #endregion

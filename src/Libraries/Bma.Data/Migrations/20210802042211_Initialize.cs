@@ -7,7 +7,7 @@ namespace Bma.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Person",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -16,19 +16,18 @@ namespace Bma.Data.Migrations
                     Age = table.Column<int>(type: "int", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(1)", nullable: false),
                     Weight = table.Column<double>(type: "float", nullable: false),
-                    Height = table.Column<double>(type: "float", nullable: false),
-                    IsOldMan = table.Column<bool>(type: "bit", nullable: false)
+                    Height = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.Id);
+                    table.PrimaryKey("PK_Person", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Person");
         }
     }
 }

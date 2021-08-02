@@ -1,10 +1,12 @@
 using System.Collections.Generic;
-using Bma.Core.Domain.Users;
+using Bma.Core.Domain.Persons;
 
-namespace Bma.Application.Responses.UserResponses
+namespace Bma.Application.Responses.PersonResponses
 {
-    public class UserResponse
+    public class PersonResponse
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public int Age { get; set; }
@@ -13,20 +15,19 @@ namespace Bma.Application.Responses.UserResponses
 
         public double Weight { get; set; }
 
-        public double Height { get; set; }
-
-        public bool IsOldMan { get { return this.Age >= 60; } }
+        public double Height { get; set; } 
     }
 
-    public static class UserResponseExtensions
+    public static class PersonResponseExtensions
     {
-        public static UserResponse ToResponse(this User entity)
+        public static PersonResponse ToResponse(this Person entity)
         {
             if (entity == null)
                 return default;
 
-            return new UserResponse
+            return new PersonResponse
             {
+                Id = entity.Id,
                 Name = entity.Name,
                 Age = entity.Age,
                 Gender = entity.Gender,
@@ -35,7 +36,7 @@ namespace Bma.Application.Responses.UserResponses
             };
         }
 
-        public static IEnumerable<UserResponse> ToResponse(this IEnumerable<User> entitites)
+        public static IEnumerable<PersonResponse> ToResponse(this IEnumerable<Person> entitites)
         {
             if (entitites == null)
                 yield return default;

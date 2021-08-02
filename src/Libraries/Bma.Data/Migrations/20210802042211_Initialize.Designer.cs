@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bma.Data.Migrations
 {
     [DbContext(typeof(BmaContext))]
-    [Migration("20210731190123_Initialize")]
+    [Migration("20210802042211_Initialize")]
     partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,7 +20,7 @@ namespace Bma.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Bma.Core.Domain.Users.User", b =>
+            modelBuilder.Entity("Bma.Core.Domain.Persons.Person", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -37,9 +37,6 @@ namespace Bma.Data.Migrations
                     b.Property<double>("Height")
                         .HasColumnType("float");
 
-                    b.Property<bool>("IsOldMan")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(60)
@@ -50,7 +47,7 @@ namespace Bma.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("Person");
                 });
 #pragma warning restore 612, 618
         }

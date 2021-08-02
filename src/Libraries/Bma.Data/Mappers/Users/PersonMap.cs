@@ -1,11 +1,11 @@
-using Bma.Core.Domain.Users;
+using Bma.Core.Domain.Persons;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Bma.Data.Mappers.Users
+namespace Bma.Data.Mappers.Persons
 {
-    public class UserMap : BaseMap<User>
+    public class PersonMap : BaseMap<Person>
     {
-        public override void Configure(EntityTypeBuilder<User> builder)
+        public override void Configure(EntityTypeBuilder<Person> builder)
         {
             base.Configure(builder);
 
@@ -13,7 +13,6 @@ namespace Bma.Data.Mappers.Users
             builder.Property(p => p.Age).IsRequired();
             builder.Property(p => p.Gender).IsRequired();
             builder.Property(p => p.Weight).IsRequired();
-            builder.Property(p => p.IsOldMan).IsRequired();
         }
     }
 }
