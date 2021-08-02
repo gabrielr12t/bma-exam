@@ -5,10 +5,10 @@ using Bma.Presentation.Framework.Mvc.Filters;
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json.Serialization;
 
 namespace Bma.Presentation.Framework.Infrastructure.Extensions
 {
@@ -49,7 +49,14 @@ namespace Bma.Presentation.Framework.Infrastructure.Extensions
                     configuration.RegisterValidatorsFromAssemblies(assemblies);
 
                     configuration.ImplicitlyValidateChildProperties = true;
-                }); 
+                });
+
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
+
+            mvcBuilder.AddControllersAsServices();
         }
     }
 }

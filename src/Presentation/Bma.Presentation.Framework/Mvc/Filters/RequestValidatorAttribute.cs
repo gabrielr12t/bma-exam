@@ -10,7 +10,7 @@ namespace Bma.Presentation.Framework.Mvc.Filters
         public RequestValidatorAttribute() : base(typeof(RequestValidatorFilter)) { }
 
         public class RequestValidatorFilter : IAsyncActionFilter
-        { 
+        {
             public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
             {
                 if (!context.ModelState.IsValid)
@@ -19,7 +19,9 @@ namespace Bma.Presentation.Framework.Mvc.Filters
                         .Where(x => x.Value.Errors.Count > 0)
                         .ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Errors.Select(x => x.ErrorMessage));
 
-                    context.Result = new BadRequestObjectResult(errorModelState.SelectMany(p => p.Value));
+                    var errors = errorModelState.SelectMany(p => p.Value);
+
+                    context.Result = new BadRequestObjectResult(errors);
                     return;
                 }
 
